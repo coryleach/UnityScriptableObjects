@@ -1,0 +1,1 @@
+{ "name": "com.gameframe.scriptableobjects.Editor", "references": [ "com.gameframe.scriptableobjects" ], "optionalUnityReferences": [], "includePlatforms": [ "Editor" ], "excludePlatforms": [] }

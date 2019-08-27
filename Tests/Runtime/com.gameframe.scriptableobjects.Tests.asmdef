@@ -1,0 +1,1 @@
+{ "name": "com.gameframe.scriptableobjects.Tests", "references": [ "com.gameframe.scriptableobjects" ], "optionalUnityReferences": ["TestAssemblies"], "includePlatforms": [], "excludePlatforms": [] }
