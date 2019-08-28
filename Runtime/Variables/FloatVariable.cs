@@ -12,7 +12,7 @@ namespace Gameframe.ScriptableObjects.Variables
       get => value;
       set
       {
-        if (this.value != value)
+        if (!Mathf.Approximately(this.value,value) )
         {
           this.value = value;
           if (onValueChanged != null)
