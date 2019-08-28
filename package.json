@@ -1,13 +1,12 @@
 {
-    "name": "com.gameframe.scriptableobjects",
-    "displayName": "GameFrame.ScriptableObjects",
-    "version": "1.0.0",
-    "description": "",
-    "unity": "2018.2",
-    "unityRelease": "13f1",
-    "author": {
-        "name": "Cory Leach",
-        "email": "cory.leach@gmail.com",
-        "url": "https://coryleach.info"
-    }
+  "name": "com.gameframe.scriptableobjects",
+  "displayName": "GameFrame.ScriptableObjects",
+  "version": "1.0.1",
+  "unity": "2018.2",
+  "unityRelease": "13f1",
+  "author": {
+    "name": "Cory Leach",
+    "email": "cory.leach@gmail.com",
+    "url": "https://coryleach.info"
+  }
 }
