@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
-  [CreateAssetMenu(menuName = "GameJam/Variables/Vector2")]
+  [CreateAssetMenu(menuName = MenuNames.Variables+"Vector2")]
   public class Vector2Variable : ScriptableObject, IVariable<Vector2>
   {
     [SerializeField]
-    Vector2 value;
+    private Vector2 value;
     public Vector2 Value
     {
-      get { return value; }
+      get => value;
       set
       {
         if (this.value != value)
@@ -27,6 +27,6 @@ namespace Gameframe.ScriptableObjects.Variables
     }
 
     [SerializeField]
-    GameEvent onValueChanged;
+    private GameEvent onValueChanged;
   }
 }

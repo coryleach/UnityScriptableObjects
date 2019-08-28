@@ -1,20 +1,18 @@
 ﻿using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
-  using UnityEngine;
-
-  [CreateAssetMenu( menuName = "Variables/Assets/AssetBundleAsset" )]
+  [CreateAssetMenu(menuName=MenuNames.Variables+"Asset")]
   public class AssetVariable : ScriptableObject
   {
-
     [SerializeField]
-    string assetName = "";
+    private string assetName = "";
     public string AssetName => assetName;
 
 #if UNITY_EDITOR
     [SerializeField]
-    string assetPath = "";
+    private string assetPath = "";
 #endif
 
     public virtual Task<Object> FetchAsync()
@@ -38,5 +36,4 @@ namespace Gameframe.ScriptableObjects.Variables
     }
 
   }
-
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.RuntimeSets
@@ -7,56 +6,50 @@ namespace Gameframe.ScriptableObjects.RuntimeSets
   public class RuntimeTable<TKey, TValue> : ScriptableObject
   {
     [SerializeField]
-    bool allowOverwrite = true;
+    private bool allowOverwrite = true;
 
     [SerializeField]
-    bool throwExceptions = false;
+    private bool throwExceptions = false;
 
-    Dictionary<TKey, TValue> items = new Dictionary<TKey, TValue>();
+    private readonly Dictionary<TKey, TValue> _items = new Dictionary<TKey, TValue>();
 
-    public IReadOnlyDictionary<TKey, TValue> Items
-    {
-      get { return items; }
-    }
+    public IReadOnlyDictionary<TKey, TValue> Items => _items;
 
     public TValue Get(TKey key)
     {
       if ( throwExceptions )
       {
-        return items[key];
+        return _items[key];
       }
 
-      TValue val;
-      if ( items.TryGetValue(key,out val))
+      if ( _items.TryGetValue(key,out var val))
       {
         return val;
       }
-      else
-      {
-        return default(TValue);
-      }
+      
+      return default(TValue);
     }
 
     public void Add(TKey key, TValue val)
     {
       if ( allowOverwrite )
       {
-        items[key] = val;
+        _items[key] = val;
       }
       else
       {
-        items.Add(key, val);
+        _items.Add(key, val);
       }
     }
 
     public bool Remove(TKey key)
     {
-      return items.Remove(key);
+      return _items.Remove(key);
     }
 
     protected virtual void OnEnable()
     {
-      items.Clear();
+      _items.Clear();
     }
   }
 }

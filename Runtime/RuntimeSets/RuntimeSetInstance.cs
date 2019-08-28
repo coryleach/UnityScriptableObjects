@@ -1,26 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.RuntimeSets
 {
-
   public class RuntimeSetInstance : MonoBehaviour
   {
-
     [SerializeField]
-    GameObjectRuntimeSet set;
+    private GameObjectRuntimeSet set;
 
-    void Awake()
+    private void Awake()
     {
-      set.Add(this.gameObject);
+      set.Add(gameObject);
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
-      set.Remove(this.gameObject);
+      set.Remove(gameObject);
     }
-
   }
-
 }

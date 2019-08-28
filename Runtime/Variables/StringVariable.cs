@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
-  [CreateAssetMenu(menuName = "GameJam/Variables/String")]
+  [CreateAssetMenu(menuName = MenuNames.Variables+"String")]
   public class StringVariable : ScriptableObject, IVariable<string>
   {
     [SerializeField]
-    string value;
+    private string value;
     public string Value
     {
-      get { return value; }
+      get => value;
       set
       {
         if (this.value != value)
@@ -27,6 +27,6 @@ namespace Gameframe.ScriptableObjects.Variables
     }
 
     [SerializeField]
-    GameEvent onValueChanged;
+    private GameEvent onValueChanged;
   }
 }

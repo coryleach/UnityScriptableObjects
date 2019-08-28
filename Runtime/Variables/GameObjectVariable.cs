@@ -1,38 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Gameframe.ScriptableObjects.Events;
+﻿using Gameframe.ScriptableObjects.Events;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
-
-  [CreateAssetMenu(menuName = "GameJam/Variables/GameObject")]
+  [CreateAssetMenu(menuName=MenuNames.Variables+"GameObject")]
   public class GameObjectVariable : ScriptableObject, IVariable<GameObject>
   {
+    [SerializeField]
+    private bool clearOnEnable = false;
 
     [SerializeField]
-    bool clearOnEnable = false;
+    private GameObject gameObject = null;
 
     [SerializeField]
-    GameObject gameObject = null;
+    private GameEvent onValueChanged = null;
 
     [SerializeField]
-    GameEvent onValueChanged = null;
-
-    [SerializeField]
-    UnityEvent valueChanged = new UnityEvent();
-    public UnityEvent OnValueChanged
-    {
-      get { return valueChanged; }
-    }
+    private UnityEvent valueChanged = new UnityEvent();
+    public UnityEvent OnValueChanged => valueChanged;
 
     public GameObject Value
     {
-      get
-      {
-        return gameObject;
-      }
+      get => gameObject;
       set
       {
         if (gameObject != value)
@@ -44,7 +34,7 @@ namespace Gameframe.ScriptableObjects.Variables
       }
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
       if (clearOnEnable)
       {
@@ -61,7 +51,5 @@ namespace Gameframe.ScriptableObjects.Variables
     {
       Value = null;
     }
-
   }
-
 }

@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Gameframe.ScriptableObjects.Events;
+﻿using Gameframe.ScriptableObjects.Events;
 using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
-  [CreateAssetMenu(menuName = "GameJam/Variables/Vector3")]
+  [CreateAssetMenu(menuName=MenuNames.Variables+"Vector3")]
   public class Vector3Variable : ScriptableObject, IVariable<Vector3>
   {
     [SerializeField]
-    Vector3 value;
+    private Vector3 value;
     public Vector3 Value
     {
-      get { return value; }
+      get => value;
       set
       {
         if (this.value != value)
@@ -27,6 +25,6 @@ namespace Gameframe.ScriptableObjects.Variables
     }
 
     [SerializeField]
-    GameEvent onValueChanged;
+    private GameEvent onValueChanged;
   }
 }

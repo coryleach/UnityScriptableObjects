@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Events
 {
-  [CreateAssetMenu(menuName = "GameJam/Events/StringEvent")]
+  [CreateAssetMenu(menuName = MenuNames.EventMenu+"StringEvent")]
   public class StringGameEvent : BaseGameEvent<string>
   {
     [SerializeField]
-    string _value;
+    private string _value;
     public override string Value
     {
-      get { return _value; }
-      set { _value = value; }
+      get => _value;
+      set => _value = value;
     }
   }
 

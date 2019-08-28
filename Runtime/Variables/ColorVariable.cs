@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
-  [CreateAssetMenu(menuName = "GameJam/Variables/Color")]
+  [CreateAssetMenu(menuName=MenuNames.Variables+"Color")]
   public class ColorVariable : ScriptableObject, IVariable<Color>
   {
     [SerializeField]
-    Color value;
+    private Color value;
     public Color Value
     {
-      get { return value; }
+      get => value;
       set
       {
         if (this.value != value)
@@ -27,6 +27,6 @@ namespace Gameframe.ScriptableObjects.Variables
     }
 
     [SerializeField]
-    GameEvent onValueChanged;
+    private GameEvent onValueChanged;
   }
 }

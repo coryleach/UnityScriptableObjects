@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.RuntimeSets
 {
-  [CreateAssetMenu(menuName ="GameJam/Sets/GameObjectSet")]
+  [CreateAssetMenu(menuName =MenuNames.RuntimeSetMenu+"GameObjectSet")]
   public class GameObjectRuntimeSet : RuntimeSet<GameObject>
   {
 

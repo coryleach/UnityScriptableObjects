@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
-  [CreateAssetMenu(menuName ="GameJam/Variables/Float")]
+  [CreateAssetMenu(menuName=MenuNames.Variables+"Float")]
   public class FloatVariable : ScriptableObject, IVariable<float>
   {
     [SerializeField]
-    float value;
+    private float value;
     public float Value
     {
-      get { return value; }
+      get => value;
       set
       {
         if (this.value != value)
@@ -27,6 +27,6 @@ namespace Gameframe.ScriptableObjects.Variables
     }
 
     [SerializeField]
-    GameEvent onValueChanged;
+    private GameEvent onValueChanged;
   }
 }

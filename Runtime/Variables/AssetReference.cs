@@ -25,7 +25,7 @@ namespace Gameframe.ScriptableObjects.Variables
 
     public AssetVariable variable;
 
-    public virtual Task<UnityEngine.Object> FetchAsync()
+    public Task<UnityEngine.Object> FetchAsync()
     {
       if ( referenceType == AssetReferenceType.Direct )
       {
