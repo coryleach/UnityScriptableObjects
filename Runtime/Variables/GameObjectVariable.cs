@@ -5,20 +5,13 @@ using UnityEngine.Events;
 namespace Gameframe.ScriptableObjects.Variables
 {
   [CreateAssetMenu(menuName=MenuNames.Variables+"GameObject")]
-  public class GameObjectVariable : ScriptableObject, IVariable<GameObject>
+  public class GameObjectVariable : BaseVariable, IVariable<GameObject>
   {
     [SerializeField]
     private bool clearOnEnable = false;
 
     [SerializeField]
     private GameObject gameObject = null;
-
-    [SerializeField]
-    private GameEvent onValueChanged = null;
-
-    [SerializeField]
-    private UnityEvent valueChanged = new UnityEvent();
-    public UnityEvent OnValueChanged => valueChanged;
 
     public GameObject Value
     {
@@ -28,8 +21,10 @@ namespace Gameframe.ScriptableObjects.Variables
         if (gameObject != value)
         {
           gameObject = value;
-          valueChanged.Invoke();
-          onValueChanged?.Raise();
+          if (onValueChanged != null)
+          {
+            onValueChanged.Raise();
+          }
         }
       }
     }
@@ -41,15 +36,6 @@ namespace Gameframe.ScriptableObjects.Variables
         Value = null;
       }
     }
-
-    public void RaisedPropertyChanged()
-    {
-      onValueChanged.Raise();
-    }
-
-    public void Clear()
-    {
-      Value = null;
-    }
+    
   }
 }

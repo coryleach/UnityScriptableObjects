@@ -1,10 +1,9 @@
-﻿using Gameframe.ScriptableObjects.Events;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
   [CreateAssetMenu(menuName=MenuNames.Variables+"Vector3")]
-  public class Vector3Variable : ScriptableObject, IVariable<Vector3>
+  public class Vector3Variable : BaseVariable, IVariable<Vector3>
   {
     [SerializeField]
     private Vector3 value;
@@ -23,8 +22,5 @@ namespace Gameframe.ScriptableObjects.Variables
         }
       }
     }
-
-    [SerializeField]
-    private GameEvent onValueChanged;
   }
 }

@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Gameframe.ScriptableObjects.Events;
+﻿using Gameframe.ScriptableObjects.Events;
 using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
   [CreateAssetMenu(menuName=MenuNames.Variables+"Color")]
-  public class ColorVariable : ScriptableObject, IVariable<Color>
+  public class ColorVariable : BaseVariable, IVariable<Color>
   {
     [SerializeField]
     private Color value;
@@ -25,8 +23,5 @@ namespace Gameframe.ScriptableObjects.Variables
         }
       }
     }
-
-    [SerializeField]
-    private GameEvent onValueChanged;
   }
 }

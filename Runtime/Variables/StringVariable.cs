@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Gameframe.ScriptableObjects.Events;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
   [CreateAssetMenu(menuName = MenuNames.Variables+"String")]
-  public class StringVariable : ScriptableObject, IVariable<string>
+  public class StringVariable : BaseVariable, IVariable<string>
   {
     [SerializeField]
     private string value;
@@ -25,8 +22,5 @@ namespace Gameframe.ScriptableObjects.Variables
         }
       }
     }
-
-    [SerializeField]
-    private GameEvent onValueChanged;
   }
 }

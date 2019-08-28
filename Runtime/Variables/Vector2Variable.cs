@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Gameframe.ScriptableObjects.Events;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
 {
   [CreateAssetMenu(menuName = MenuNames.Variables+"Vector2")]
-  public class Vector2Variable : ScriptableObject, IVariable<Vector2>
+  public class Vector2Variable : BaseVariable, IVariable<Vector2>
   {
     [SerializeField]
     private Vector2 value;
@@ -25,8 +22,5 @@ namespace Gameframe.ScriptableObjects.Variables
         }
       }
     }
-
-    [SerializeField]
-    private GameEvent onValueChanged;
   }
 }
