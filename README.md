@@ -8,7 +8,7 @@
 
 > Library of ScriptableObject types for Unity
 
-> RuntimeSet
+> RuntimeSets
 
 > Variables
 
