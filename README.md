@@ -8,6 +8,12 @@
 
 > Library of ScriptableObject types for Unity
 
+> RuntimeSet
+
+> Variables
+
+> GameEvents
+
 ## Author
 
 👤 **Cory Leach**
