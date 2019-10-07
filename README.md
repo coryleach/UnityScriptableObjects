@@ -14,6 +14,20 @@
 
 > GameEvents
 
+## Install 
+
+#### Using UnityPackageManager (for Unity 2018.3 or later)
+
+Find the manifest.json file in the Packages folder of your project and edit it to look like this:
+```js
+{
+  "dependencies": {
+    "com.gameframe.scriptableobjects": "https://github.com/coryleach/UnityScriptableObjects.git#1.0.1",
+    ...
+  },
+}
+```
+
 ## Author
 
 👤 **Cory Leach**
