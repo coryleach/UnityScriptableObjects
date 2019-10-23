@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Gameframe.ScriptableObjects.Events;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Variables
@@ -31,7 +30,6 @@ namespace Gameframe.ScriptableObjects.Variables
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [NotifyPropertyChangedInvocator]
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             try

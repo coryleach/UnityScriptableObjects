@@ -1,8 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using Gameframe.ScriptableObjects.Events;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Locks
@@ -79,7 +77,6 @@ namespace Gameframe.ScriptableObjects.Locks
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [NotifyPropertyChangedInvocator]
         private void OnPropertyChanged(string propertyName = null)
         {
             var value = Locked;
