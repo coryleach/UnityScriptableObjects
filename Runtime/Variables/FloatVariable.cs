@@ -10,17 +10,7 @@ namespace Gameframe.ScriptableObjects.Variables
     public float Value
     {
       get => value;
-      set
-      {
-        if (!Mathf.Approximately(this.value,value) )
-        {
-          this.value = value;
-          if (onValueChanged != null)
-          {
-            onValueChanged.Raise();
-          }
-        }
-      }
+      set => SetProperty(ref this.value, value);
     }
   }
 }

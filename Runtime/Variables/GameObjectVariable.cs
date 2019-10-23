@@ -21,10 +21,7 @@ namespace Gameframe.ScriptableObjects.Variables
         if (gameObject != value)
         {
           gameObject = value;
-          if (onValueChanged != null)
-          {
-            onValueChanged.Raise();
-          }
+          OnPropertyChanged();
         }
       }
     }

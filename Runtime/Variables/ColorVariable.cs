@@ -11,17 +11,7 @@ namespace Gameframe.ScriptableObjects.Variables
     public Color Value
     {
       get => value;
-      set
-      {
-        if (this.value != value)
-        {
-          this.value = value;
-          if (onValueChanged != null)
-          {
-            onValueChanged.Raise();
-          }
-        }
-      }
+      set => SetProperty(ref this.value, value);
     }
   }
 }
