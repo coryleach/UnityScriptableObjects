@@ -5,6 +5,12 @@ using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Locks
 {
+    
+    /// <summary>
+    /// GameLock maintains an internal count for the number of times it's been locked
+    /// The Locked property will be true when the count is not equal to zero
+    /// Events are generated on Lock and Unlock
+    /// </summary>
     [CreateAssetMenu(menuName=MenuNames.LockMenu+"Lock")]
     public class GameLock : ScriptableObject, INotifyPropertyChanged
     {
@@ -12,6 +18,11 @@ namespace Gameframe.ScriptableObjects.Locks
         private int lockCount = 0;
 
         public bool Locked => lockCount != 0;
+        
+        /// <summary>
+        /// OnValueChanged is raised when the state of the lock changes
+        /// A value of True means the lock count is non-zero.
+        /// </summary>
         public event Action<bool> OnValueChanged;
 
         [SerializeField]
@@ -47,6 +58,9 @@ namespace Gameframe.ScriptableObjects.Locks
             lockCount = 0;
         }
 
+        /// <summary>
+        /// Increment the internal counter which enables the lock
+        /// </summary>
         public void Lock()
         {
             lockCount++;
@@ -56,6 +70,9 @@ namespace Gameframe.ScriptableObjects.Locks
             }
         }
 
+        /// <summary>
+        /// Decrement the internal counter which disables the lock if it hits zero
+        /// </summary>
         public void Unlock()
         {
             lockCount--;
