@@ -1,11 +1,14 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Gameframe.ScriptableObjects.Events;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Gameframe.ScriptableObjects.Locks
 {
     [CreateAssetMenu(menuName=MenuNames.LockMenu+"Lock")]
-    public class GameLock : ScriptableObject
+    public class GameLock : ScriptableObject, INotifyPropertyChanged
     {
         [NonSerialized]
         private int lockCount = 0;
@@ -66,7 +69,21 @@ namespace Gameframe.ScriptableObjects.Locks
 
         private void RaiseValueChanged()
         {
+            OnPropertyChanged(nameof(Locked));
+        }
+        
+        /// <summary>
+        /// INotifyPropertyChanged interface implemented to support Gameframe.Bindings
+        /// </summary>
+        #region INotifyPropertyChanged
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        private void OnPropertyChanged(string propertyName = null)
+        {
             var value = Locked;
+            
             if (value)
             {
                 if (lockedEvent != null)
@@ -81,8 +98,27 @@ namespace Gameframe.ScriptableObjects.Locks
                     unlockedEvent.Raise();
                 }
             }
-            OnValueChanged?.Invoke(value);
+            
+            try
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e,this);   
+            }
+            
+            try
+            {
+                OnValueChanged?.Invoke(value);
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e,this);   
+            }
         }
+
+        #endregion
         
     }
 }
