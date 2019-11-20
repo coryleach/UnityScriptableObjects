@@ -10,14 +10,14 @@ namespace Gameframe.ScriptableObjects.Events
   public class StringGameEventListener : BaseGameEventListener<string>
   {
 
-    [SerializeField]
-    StringGameEvent stringGameEvent;
+    [SerializeField] 
+    private StringGameEvent stringGameEvent = null;
 
     [Serializable]
     public class StringEvent : UnityEvent<string> { }
 
-    [SerializeField]
-    StringEvent onEventRaised;
+    [SerializeField] 
+    private StringEvent onEventRaised = null;
 
     protected override GameEvent InternalEvent
     {
