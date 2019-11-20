@@ -5,7 +5,7 @@ namespace Gameframe.ScriptableObjects.RuntimeSets
   public class RuntimeSetInstance : MonoBehaviour
   {
     [SerializeField]
-    private GameObjectRuntimeSet set;
+    private GameObjectRuntimeSet set = null;
 
     private void Awake()
     {
