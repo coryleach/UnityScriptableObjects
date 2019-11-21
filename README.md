@@ -6,15 +6,12 @@
   </a>
 </p>
 
-> Library of ScriptableObject types for Unity
+> Library of ScriptableObject types for Unity:</br>
+> RuntimeSets - GameObjects can add themselves to RuntimeSet assets at runtime to quickly get sets of GameObjects</br>
+> Variables - Use scriptable objects to share variable instances between objects. Subscribe for value change events.</br>
+> GameEvents - Hook up events between scenes and prefabs using scriptable objects as game events</br>
 
-> RuntimeSets
-
-> Variables
-
-> GameEvents
-
-## Install 
+## Quick Package Install 
 
 #### Using UnityPackageManager (for Unity 2018.3 or later)
 
