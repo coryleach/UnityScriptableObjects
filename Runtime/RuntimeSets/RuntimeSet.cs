@@ -4,15 +4,15 @@ using UnityEngine.Events;
 
 namespace Gameframe.ScriptableObjects.RuntimeSets
 {
-  public class RuntimeSet<T> : ScriptableObject
+  public class RuntimeSet<T> : ScriptableObject, IRuntimeSet<T>
   {
     public class RuntimeSetChangeEvent : UnityEvent<T> {}
 
     private readonly List<T> _items = new List<T>();
     public IReadOnlyList<T> Items => _items;
 
-    public RuntimeSetChangeEvent OnAdded { get; } = new RuntimeSetChangeEvent();
-    public RuntimeSetChangeEvent OnRemoved { get; } = new RuntimeSetChangeEvent();
+    public UnityEvent<T> OnAdded { get; } = new RuntimeSetChangeEvent();
+    public UnityEvent<T> OnRemoved { get; } = new RuntimeSetChangeEvent();
 
     public void Add(T t)
     {
