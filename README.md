@@ -27,7 +27,20 @@ Find the manifest.json file in the Packages folder of your project and edit it t
 }
 ```
 
-<!-- DOC-START --><!-- DOC-END -->
+<!-- DOC-START -->
+
+<b>Library of ScriptableObject types for Unity:</b></br>
+
+> <b>RuntimeSets</b></br>
+> GameObjects can add themselves to RuntimeSet assets at runtime to quickly get sets of GameObjects</br>
+
+> <b>Variables</b></br>
+> Use scriptable objects to share variable instances between objects. Subscribe for value change events.</br>
+
+> <b>GameEvents</b></br>
+> Hook up events between scenes and prefabs using scriptable objects as game events</br>
+ 
+<!-- DOC-END -->
 
 ## Author
 
